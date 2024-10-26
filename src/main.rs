@@ -4,7 +4,7 @@ use std::io::Write;
 use std::{error::Error, thread};
 
 fn fetch_weather() -> Result<String, Box<dyn Error>> {
-    let body = reqwest::blocking::get("https://wttr.in/99202?format=%c%t")?.text()?;
+    let body = reqwest::blocking::get("https://wttr.in/99202?u&format=%t%c")?.text()?;
     let weather = body.replace(" ", "");
     Ok(weather)
 }
